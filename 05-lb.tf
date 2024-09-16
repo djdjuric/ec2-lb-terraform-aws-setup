@@ -53,7 +53,7 @@ resource "aws_lb_target_group" "app1-instances" {
 }
 
 resource "aws_lb_target_group_attachment" "lb_instance_attachments" {
-  count             = length(aws_instance.t4gnano_instance) # Get the number of instances
+  count             = length(aws_instance.t4gnano_instance) 
   target_id         = aws_instance.t4gnano_instance[count.index].id
   target_group_arn  = aws_lb_target_group.app1-instances.arn
 }
